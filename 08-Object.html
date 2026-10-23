@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object</title>
+</head>
+<body>
+    
+
+    <script>
+        const product ={
+            name:'Iphone 14',
+            price: 1000,
+
+            hello: function(){
+                console.log('This is a function inside an object');
+            }
+        }
+        console.log(product);
+        product.hello();
+
+        product.name = 'Iphone 14 Pro';
+        console.log(product.name);
+
+        product.color="Black";
+        console.log(product);
+
+    console.log(JSON.stringify(product));
+    console.log(JSON.parse(JSON.stringify(product)));
+    </script>
+</body>
+</html>

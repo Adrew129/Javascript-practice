@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="display0">
+        <p>The Original Array</p>
+
+    </div>
+    <div class="display1">
+
+    </div>
+    <div class="display2">
+        <p>The Last Array</p>
+
+    </div>
+    <div class="display3"></div>
+    
+    <script>
+        const nums1=[10,20,30];
+        
+       
+
+        displayArray(nums1); 
+        function changeLast(arrayList){
+            let html=" ";
+            
+            for(let i=0;i<arrayList.length;i++){
+                if(i===arrayList.length-1){
+                    arrayList[i]=99
+                }
+                let a=nums1[i];
+                let b=`<p> ${a} </p>`;
+                html +=b;
+                }
+            document.querySelector('.display1').innerHTML=html;
+                        }
+
+
+        function displayArray(arrayList){
+            let html=" ";
+
+            for(let i=0;i<arrayList.length;i++){
+                html +=`<p> ${arrayList[i]} </p>`;
+            }
+            document.querySelector('.display0').innerHTML+=html;
+        }
+        
+        
+
+        function getLastValue(arrayList){
+            for(let i=0;i<arrayList;i++){
+                document.querySelector('.display2').innerHTML +=`<p> ${arrayList[i]}`;
+            }
+
+            for(let i=0;i<arrayList.length;i++){
+                if(i===arrayList.length-1){
+                    document.querySelector('.display2').innerHTML +=`<p> ${arrayList[i]}`;
+
+                }
+            }
+
+        }
+
+        neemaList=[1,20,22,24,5];
+        getLastValue(neemaList);
+
+
+    </script>
+</body>
+</html>

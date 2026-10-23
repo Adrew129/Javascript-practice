@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+    <script>
+        const product={
+            basketball:{name:"Jordan-ball",
+                price:2095,
+                stock:10}
+        }
+        console.log(product.basketball.name);
+        product.basketball.price=2000;
+        console.log(product.basketball.price);
+
+
+       // product.delivery="3 days";
+       product["delivery"]="3 days";
+        console.log(product);
+
+        console.log(product.delivery);
+
+        function comparePrice(product1,product2){
+            
+            if(product1.price>product2.price){
+                console.log(product1.name + " is more expensive than " + product2.name);
+                return product2
+            }
+            else if(product1.price<product2.price){
+                console.log(product1.name + " is less expensive than " + product2.name);
+                return product1
+            }
+            else{
+                console.log(product1.name + " and " + product2.name + " have the same price");
+                return 0;
+            }
+    
+        }
+
+        /*
+        let test1=product;
+        test1.basketball.price=2000;
+        test1.basketball.name="Nyamtondo ball";
+
+        let test2=product;
+        test2.basketball.price=10000;
+        test2.basketball.name="LeBron ball";
+        comparePrice(test1,test2);
+        nimekosea hapa nikama object ni hile ila badilisha majina yanayochukua from one reference to another reference. So I need to create a new object and copy the values from the original object to the new object. I can do this by using the spread operator or by using Object.assign() method. Here is how I can do it:
+
+        */
+
+        let{name:a, price:b, stock:c}=product.basketball;
+        let test1={name:a, price:b, stock:c}
+        let test2={name:"LeBron ball", price:10000, stock:5}
+        comparePrice(test1,test2);
+
+    function compareprice(product1,product2){
+
+
+        if(product1.price===procuct2.price && product1.name===product2.name){
+            console.log(product1.name + " and " + product2.name + " are the same product");
+            return false;
+        }
+    }
+co
+
+    
+
+    </script>
+    
+</body>
+</html>

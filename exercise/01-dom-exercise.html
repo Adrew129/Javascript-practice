@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .a9, .b9, .head-js, .tail-js {
+            margin: 5px;
+        }
+
+        .head-js, .tail-js {
+            background-color: lightblue;
+            border: 1px solid blue;
+            border-radius: 5px;
+            font-size: 16px;
+            padding: 10px 20px;
+            
+        }
+        .head-js:active, .tail-js:active{
+            background-color: green;
+            color: white;
+            transition: background-color 1s, color 1s;
+        }
+    </style>
+</head>
+<body>
+
+    <button class="a9">9a</button>
+    <button class="b9">9b</button>
+    <br>
+    <p>Question 9c</p>
+
+    <button class="head-js" onclick="chooseOption('Head')">Head</button>
+    <button class="tail-js" onclick="chooseOption('Tail')">Tail</button>
+
+    <p class="choose-result"></p>
+
+
+    <p>Question 9d</p>
+    
+    <input type="text" class="input-text" placeholder="Type your name   ..." onkeydown="handlingKey(event)">
+    <button class="submit-btn" onclick="submitName(nameOf)">Submit</button>
+    <p class="submitResult"></p>
+
+
+    <p>Question 9h</p>
+
+    <input type="text" class="liveText" onkeyup=" onLive(event)">
+    <p class="typing"></p>
+
+
+
+
+<script>
+    window.console.log(document.querySelector('.a9'));
+    console.log(document.querySelector('.a9').innerText);
+
+    console.log(document.querySelector('.b9'));
+    document.querySelector('.b9').innerText= '9b Done !';
+    
+
+
+    //question 9c
+    document.querySelector('.choose-result').innerText = 'Choose Head or Tail !';
+
+    function chooseOption(option){
+        document.querySelector('.choose-result').innerText = 'You chose: ' + option;
+    }
+
+    //question 9d
+    function submitName(nameOf){
+        document.querySelector('.submitResult').innerText="";
+        
+    }
+
+   function handlingKey(event){
+        console.log(event.key);
+
+        const allowedKeys=["Backspace", "Delete", "ArrowLeft", "ArrowRight", "Tab", "Enter"];
+
+        if(allowedKeys.includes(event.key)){
+
+            document.querySelector('.submitResult').innerHTML=" ";
+
+            if(event.key= "Enter"){
+                const nameText = document.querySelector('.input-text').value;
+                document.querySelector('.submitResult').innerHTML=nameText;
+
+            }
+
+        }
+
+       /*
+        if(isNaN(event.key) || event.key=== " "){
+        document.querySelector('.submitResult').innerHTML= "Please enter number 0,1,2,......9";
+       }
+       else{
+
+       }
+        
+       */  
+    }
+
+
+    function onLive(event){
+        let inputValue= document.querySelector('.liveText');
+        
+
+        document.querySelector('.typing').innerHTML= inputValue.value;
+
+    }
+    
+</script>
+    
+</body>
+</html>

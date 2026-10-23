@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Project- Hello</title>
+
+    <style>
+        .js-subscribe{
+            font-style: oblique;
+            color:white;
+            background-color: red;
+            padding-bottom: 10px;
+            padding-top: 10px;
+            padding-left: 10px;
+            padding-right: 10px;
+            border-radius: 20px;
+            border-width: 0px;
+
+        }
+        .subscribe{
+            font-size: 35px;
+            font-family: 'Times New Roman', Times, serif;
+            font-style: italic;
+        }
+
+        .js-cost{
+        padding: 10px;
+        border-radius: 15px;
+
+        }
+        .calcu-btn{
+            width: 100px;
+            height: 40px;
+            border-radius: 15px;
+
+        }
+        .calcu-btn:hover{
+            background-color: green;
+        }
+        .afterClick{
+            background-color: black;
+            color: white;
+        }
+
+    </style>
+</head>
+<body>
+    <p class="subscribe">YouTube subscribe button</p>
+    <button onclick="changeButtonText()" class="js-subscribe">Subscribe</button>
+
+    <p>Amazon Shipping calculator</p>
+    <input type="text" placeholder="cost of order" class="js-cost" onkeydown="handleCostKeyDown(event)">
+
+    <button onclick="calculateShipping()" class="calcu-btn">Calculate</button>
+    <p class="js-total-cost"></p>
+
+
+    
+    
+    <script>
+        function changeButtonText() {
+            const buttonElement = document.querySelector('.js-subscribe');
+            if (buttonElement.innerText === 'Subscribe') {
+                buttonElement.innerText = 'Subscribed';
+                buttonElement.classList.add('afterClick');
+            } else {
+
+                buttonElement.innerText = 'Subscribe';
+                buttonElement.classList.remove('afterClick');
+               
+            }
+        }
+
+//event listener for keydown event on the input field
+//event.key is used to get the key that was pressed
+
+
+//this function is used to handle the keydown event on the input field
+        function handleCostKeyDown(event) {
+            console.log(event);
+            const allowedKeys=["Backspace", "Delete", "ArrowLeft", "ArrowRight", "Tab", "Enter"];
+            const totalCostEl= document.querySelector('.js-total-cost');
+            if(allowedKeys.includes(event.key)){
+                totalCostEl.innerHTML = '';
+                totalCostEl.style.color= '';
+
+                if (event.key === 'Enter') {
+                calculateShipping();
+
+            }
+            return;
+            }
+
+            //nataka nijue kama ameselect enter key and  if ameselect key ambayo sio number
+            if (isNaN(event.key) || event.key === " ") {
+                totalCostEl.innerHTML = 'Please enter a valid number';
+                totalCostEl.style.color= 'red';
+                
+                return;
+                           }
+            else{
+                totalCostEl.innerHTML = '';
+                totalCostEl.style.color= '';
+            }
+    
+            
+        }
+
+        function calculateShipping(){
+            const costInputElement = document.querySelector('.js-cost');
+            let cost= Number(costInputElement.value);
+
+            if(cost < 40){
+                cost = cost + 10;
+                console.log(cost);
+            }
+            document.querySelector('.js-total-cost').innerHTML = `Total cost: $${cost}`;
+
+        }
+
+    </script>
+</body>
+</html>

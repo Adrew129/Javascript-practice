@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+</head>
+<body>
+    <button>Hello</button>
+    <button class="js-button">Second button</button>
+    <script>
+        document.querySelector("button");
+        console.log(document.querySelector("button").innerHTML)
+
+        document.querySelector("button").innerHTML="Hello is change";
+        //for the class
+        document.querySelector('.js-button').innerHTML='second-change';
+       /* document.body.innerHTML="Hello World";
+        document.title="DOM Manipulation";
+        */
+
+       /* document.title="Changeed Title";
+        console.log(document.title);
+
+        console.log(document.body);
+        */
+    </script>
+    
+</body>
+</html>

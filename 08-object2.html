@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const product2={
+            name:'shirt',
+            ['delivery-time']:'1 days',
+            function: function(){
+                console.log('function inside object');
+            },
+            rating:{
+                starts:4.5,
+                reviews: 1000
+            },
+            fun:function function2(){
+                console.log('function inside object');
+            }
+        }
+        console.log(product2.name);
+        console.log(product2['delivery-time']);
+        console.log(product2['rating']['starts']);
+        product2.fun();
+        console.log(JSON.stringify(product2));
+
+    </script>
+</body>
+</html>
