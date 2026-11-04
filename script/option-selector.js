@@ -32,7 +32,7 @@ optionList.forEach((medicine)=>{
     let optionHtml='';
 
     if(stock<100){
-        optionHtml=`<option selected value="${stock}">$stock</option>`;
+        optionHtml=`<option selected value="${stock}">${stock}</option>`;
     }
     else{
         for(let i=1; i<=Math.floor(stock/100);i++){
@@ -62,6 +62,7 @@ optionList.forEach((medicine)=>{
 
 document.querySelector(".main-js").innerHTML=htmlElement;
 let htmlOrder='';
+let totalCost=0;
 
 document.querySelectorAll('.btn-js').forEach((button)=>{
     button.addEventListener('click',()=>{
@@ -76,7 +77,10 @@ document.querySelectorAll('.btn-js').forEach((button)=>{
                         <div class="orderQuantity">${select}</div>
                         <div class="orderPrice">${orderPriceQ}</div>
                      </div>`;
+        let totalCost=0;
+        totalCost +=orderPriceQ;
         document.querySelector('.main-order').innerHTML = htmlOrder;
     });
+
 
 });
