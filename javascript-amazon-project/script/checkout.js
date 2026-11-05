@@ -2,7 +2,7 @@ import {cart} from '../data/carts.js';
 import { products } from '../data/products.js';
 import { formatCurrency } from './utils/money.js';
 
-let cartSummaryHTML=''
+let cartSummaryHTML='';
 
 cart.forEach((cartItem)=>{
 
@@ -15,7 +15,7 @@ cart.forEach((cartItem)=>{
         }
 
     });
-    console.log(matchingProduct);
+
  cartSummaryHTML +=   
 `
 <div class="cart-item-container">
@@ -40,7 +40,7 @@ cart.forEach((cartItem)=>{
                 <span class="update-quantity-link link-primary">
                     Update
                 </span>
-                <span class="delete-quantity-link link-primary">
+                <span class="delete-quantity-link link-primary js-delete-link">
                     Delete
                 </span>
                 </div>
